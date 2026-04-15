@@ -1,5 +1,8 @@
+//this takes your route function as input
 const asyncHandler = (requestHandler) => {
+    //returns a middleware functon
     return (req , res, next) => {
+        //runs your async function safely
         Promise.resolve(requestHandler(req , res , next)).
         catch((err) => next(err))
     }
